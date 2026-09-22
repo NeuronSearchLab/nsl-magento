@@ -1,6 +1,6 @@
 # NeuronSearchLab Recommendations for Magento 2
 
-Download the free [Magento Composer ZIP](https://github.com/NeuronSearchLab/nsl-magento/releases/download/v1.0.1/nsl-magento-marketplace.zip) (version 1.0.1). Adobe Commerce Marketplace review is pending; this public download has **not** been certified by Adobe. It has passed a disposable Magento Open Source 2.4.9 Composer installation, module upgrade, dependency injection compilation, static asset deployment, reindex, and an HTTP storefront check for the home placement. These checks do not establish checkout, customer-isolation, Varnish, custom-theme, or Adobe Commerce edition compatibility.
+Download the free [Magento Composer ZIP](https://github.com/NeuronSearchLab/nsl-magento/releases/download/v1.0.1/nsl-magento-marketplace.zip) (version 1.0.1). Adobe Commerce Marketplace review is pending; this public download has **not** been certified by Adobe. It has passed a disposable Magento Open Source 2.4.9 Composer installation, module upgrade, dependency injection compilation, static asset deployment, reindex, and HTTP storefront checks for home, search, and cart placements. These checks do not establish checkout, customer-isolation, Varnish, custom-theme, or Adobe Commerce edition compatibility.
 
 The extension is free. Recommendations require a separately provisioned NeuronSearchLab service workspace, a publishable Website embed key, and catalogue items imported into NSL. Service charges are separate from the extension. This extension does not sync the Magento catalogue or order history into NSL.
 
