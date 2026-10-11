@@ -60,4 +60,4 @@ Use a staging origin on the embed key. Test a simple and configurable product pa
 
 Set Enabled to No and flush cache to stop storefront delivery. To uninstall the module, run `bin/magento module:disable NeuronSearchLab_Recommendations`, remove the Composer package, run `bin/magento setup:upgrade`, then flush cache. Existing NSL workspace data remains subject to the workspace's own retention settings.
 
-Support: use the support channel associated with your NSL workspace or open an issue at https://github.com/NeuronSearchLab/nsl-platforms/issues.
+Support: use the support channel associated with your NSL workspace, email support@neuronsearchlab.com, or open an issue at https://github.com/NeuronSearchLab/nsl-magento/issues.
