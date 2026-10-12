@@ -1,8 +1,10 @@
 # NeuronSearchLab Recommendations for Magento 2
 
-Download the free [Magento Composer ZIP](https://github.com/NeuronSearchLab/nsl-magento/releases/download/v1.0.1/nsl-magento-marketplace.zip) (version 1.0.1; SHA-256 `44fd484554534d84132c1aab3b5262c481022014e3d8164d787534681762d3d4`). The public archive was updated on 11 October 2026 with the ACL correction submitted to Adobe. Adobe's Code Sniffer, Installation & Varnish, and MFTF automated tests passed on 24 September; manual QA and marketing review are still pending, so the extension is **not yet Marketplace-certified**. A disposable Magento Open Source 2.4.9 Composer installation, module upgrade, dependency injection compilation, static asset deployment, reindex, and HTTP storefront checks for home, search, and cart placements also passed. A merchant still needs to import a catalogue into NSL and configure a publishable embed key. These checks do not establish a full customer checkout, customer isolation on a production cache, custom-theme, or Adobe Commerce edition compatibility.
+Personalised product recommendations for Magento Open Source and Adobe Commerce 2.4. Connect the store from Magento admin and the module sets itself up: it creates your NeuronSearchLab workspace, switches the storefront integration on and keeps your catalogue in sync. There is no tagging to write and no key to copy.
 
-The extension is free. Recommendations require a separately provisioned NeuronSearchLab service workspace, a publishable Website embed key, and catalogue items imported into NSL. Service charges are separate from the extension. This extension does not sync the Magento catalogue or order history into NSL.
+Download the free [Magento Composer ZIP](https://github.com/NeuronSearchLab/nsl-magento/releases/download/v1.1.0/nsl-magento-marketplace.zip) (version 1.1.0; SHA-256 `3903d60f013963f835d48397d153d8728d37e54d660a626db0774af284c682b3`).
+
+Version 1.1.0 is tested in CI on a disposable Magento Open Source 2.4.9. The tests install the module, compile dependency injection, render the admin connection panel, connect to NeuronSearchLab, sync a catalogue and confirm its products are recommended, then disconnect and delete the test data. Version 1.0.1 is in Adobe Commerce Marketplace review, so the extension is **not yet Marketplace-certified**. Please test on staging before production.
 
 ## Install
 
@@ -10,7 +12,7 @@ Download the ZIP into a directory outside your Magento project, then register th
 
 ```bash
 composer config repositories.nsl-artifact artifact /path/to/zip-directory
-composer require neuronsearchlab/module-recommendations:1.0.1
+composer require neuronsearchlab/module-recommendations:1.1.0
 bin/magento module:enable NeuronSearchLab_Recommendations
 bin/magento setup:upgrade
 bin/magento setup:di:compile
@@ -18,6 +20,10 @@ bin/magento setup:static-content:deploy -f
 bin/magento cache:flush
 ```
 
-In Magento Admin, open **Stores → Configuration → NeuronSearchLab → Recommendations**. Enable the extension and enter your publishable NSL embed key. Allow your storefront origin in the NSL console. The extension adds placements on home, product, category, search, and cart pages.
+## Connect
 
-See the [user guide](USER_GUIDE.md) or [PDF guide](NeuronSearchLab-Magento-User-Guide.pdf) for configuration, staging checks, troubleshooting, and removal. Please test on staging before production. Support and bug reports: [GitHub issues](https://github.com/NeuronSearchLab/nsl-magento/issues).
+In Magento Admin, open **Stores → Configuration → NeuronSearchLab → Recommendations** and select **Connect to NeuronSearchLab**, or run `bin/magento neuronsearchlab:connect`. Recommendations appear on home, product, category, search and cart pages once the catalogue has been imported, usually within a few minutes. The catalogue syncs hourly through Magento cron; **Sync catalogue now** and `bin/magento neuronsearchlab:catalogue:sync` sync on demand.
+
+A connected store starts on NeuronSearchLab's free plan (10,000 storefront recommendation requests a month). Placements, ranking rules, analytics and plans are in the NeuronSearchLab console: select **Open NeuronSearchLab console** in the connection panel.
+
+See the [user guide](USER_GUIDE.md) or [PDF guide](NeuronSearchLab-Magento-User-Guide.pdf) for catalogue sync, staging checks, troubleshooting and removal. Support: support@neuronsearchlab.com or [GitHub issues](https://github.com/NeuronSearchLab/nsl-magento/issues).
